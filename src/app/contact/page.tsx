@@ -1,7 +1,7 @@
 'use client';
 import { motion } from 'framer-motion';
 import { useState } from 'react';
-import { Phone, Mail, MapPin, MessageCircle, Send } from 'lucide-react';
+import { Phone, Mail, MapPin, MessageCircle, Send, CheckCircle } from 'lucide-react';
 
 export default function ContactPage() {
   const [form, setForm] = useState({ name: '', phone: '', email: '', message: '' });
@@ -46,7 +46,7 @@ export default function ContactPage() {
                 <textarea className="form-input" placeholder="Tell us about your skating goals..." value={form.message} onChange={e => setForm({...form, message: e.target.value})} required />
               </div>
               <button type="submit" className="btn btn-primary" style={{ width: '100%', padding: 'var(--space-2) var(--space-4)', fontSize: '0.9rem', gap: 8 }}>
-                {submitted ? '✓ Sent Successfully!' : <><Send size={16} /> Send Message</>}
+                {submitted ? <><CheckCircle size={16} /> Sent Successfully!</> : <><Send size={16} /> Send Message</>}
               </button>
             </form>
           </motion.div>

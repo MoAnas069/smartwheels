@@ -7,8 +7,6 @@ const branchData = [
   { name: 'Mumbai Central', location: 'Mahalaxmi Sports Complex, Mumbai', coach: 'Coach Rajesh Kumar', timings: 'Mon-Sat: 6AM-8PM', phone: '+91 98765 43210', lat: 19.0176, lng: 72.8562 },
   { name: 'Pune Branch', location: 'Shivaji Nagar Sports Arena, Pune', coach: 'Coach Priya Sharma', timings: 'Mon-Sat: 7AM-9PM', phone: '+91 98765 43211', lat: 18.5314, lng: 73.8446 },
   { name: 'Delhi NCR', location: 'Connaught Place Sports Hub, Delhi', coach: 'Coach Amit Patel', timings: 'Mon-Sat: 6AM-8PM', phone: '+91 98765 43212', lat: 28.6315, lng: 77.2167 },
-  { name: 'Bangalore', location: 'Koramangala Skating Rink, Bangalore', coach: 'Coach Sneha Reddy', timings: 'Mon-Sat: 7AM-9PM', phone: '+91 98765 43213', lat: 12.9352, lng: 77.6245 },
-  { name: 'Hyderabad', location: 'Jubilee Hills Sports Academy, Hyderabad', coach: 'Coach Vikram Singh', timings: 'Mon-Sat: 6AM-8PM', phone: '+91 98765 43214', lat: 17.4326, lng: 78.4071 },
 ];
 
 export default function BranchesPage() {
@@ -52,10 +50,10 @@ export default function BranchesPage() {
       {/* Branch Cards */}
       <section ref={ref} style={{ background: 'var(--bg-primary)', padding: 'var(--space-12) var(--space-4)' }}>
         <div className="container">
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(350px, 1fr))', gap: 'var(--space-4)' }}>
+          <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: 'var(--space-4)' }}>
             {branchData.map((b, i) => (
               <motion.div key={b.name} className="card" initial={{ opacity: 0, y: 40 }} animate={isInView ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.5, delay: i * 0.1 }}
-                style={{ padding: 'var(--space-4)' }}>
+                style={{ padding: 'var(--space-4)', flex: '1 1 300px', maxWidth: '380px', width: '100%' }}>
                 <h3 style={{ fontFamily: 'var(--font-heading)', fontSize: '1.5rem', letterSpacing: '0.06em', marginBottom: 'var(--space-3)', color: 'var(--text-primary)' }}>{b.name}</h3>
                 {[
                   { icon: MapPin, text: b.location },

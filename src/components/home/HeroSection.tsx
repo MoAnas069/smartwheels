@@ -2,6 +2,9 @@
 
 import { useRef, useEffect } from 'react';
 import { motion } from 'framer-motion';
+import Image from 'next/image';
+import { Trophy } from 'lucide-react';
+import heroSideBg from '@/assets/hero side bg.png';
 
 export default function HeroSection() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -103,6 +106,20 @@ export default function HeroSection() {
         <div className="hero__bg-gradient" />
       </div>
 
+      <motion.div
+        className="hero__side-bg"
+        initial={{ opacity: 0, x: 60 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{ duration: 1, delay: 1.6, ease: [0.22, 1, 0.36, 1] }}
+      >
+        <Image
+          src={heroSideBg}
+          alt="Hero Background"
+          priority
+          className="hero__bg-image"
+        />
+      </motion.div>
+
       <canvas ref={canvasRef} className="hero__canvas" />
 
       <div className="hero__content container">
@@ -112,14 +129,6 @@ export default function HeroSection() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 1.6, ease: [0.22, 1, 0.36, 1] }}
         >
-          <motion.div
-            className="hero__badge"
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.5, delay: 1.8 }}
-          >
-            🏆 #1 Skating Academy
-          </motion.div>
 
           <h1 className="hero__title">
             Train Like a <span className="gradient-text">Champion.</span>
@@ -195,176 +204,7 @@ export default function HeroSection() {
         <div className="hero__scroll-line" />
       </motion.div>
 
-      <style jsx>{`
-        .hero {
-          position: relative;
-          min-height: 100vh;
-          display: flex;
-          align-items: center;
-          overflow: hidden;
-        }
 
-        .hero__bg {
-          position: absolute;
-          inset: 0;
-          z-index: 0;
-        }
-
-        .hero__bg-pattern {
-          position: absolute;
-          inset: 0;
-          background-image:
-            radial-gradient(circle at 20% 50%, rgba(225, 6, 0, 0.08) 0%, transparent 50%),
-            radial-gradient(circle at 80% 20%, rgba(255, 212, 0, 0.05) 0%, transparent 40%),
-            radial-gradient(circle at 50% 80%, rgba(192, 192, 192, 0.03) 0%, transparent 40%);
-        }
-
-        .hero__bg-gradient {
-          position: absolute;
-          inset: 0;
-          background: linear-gradient(180deg, 
-            rgba(10,10,10,0.3) 0%, 
-            rgba(10,10,10,0.6) 50%, 
-            rgba(10,10,10,0.95) 100%
-          );
-        }
-
-        .hero__canvas {
-          position: absolute;
-          inset: 0;
-          z-index: 1;
-          pointer-events: none;
-        }
-
-        .hero__content {
-          position: relative;
-          z-index: 2;
-          padding-top: var(--space-12);
-        }
-
-        .hero__text {
-          max-width: 800px;
-        }
-
-        .hero__badge {
-          display: inline-block;
-          padding: 6px 16px;
-          background: rgba(225, 6, 0, 0.15);
-          border: 1px solid rgba(225, 6, 0, 0.3);
-          border-radius: var(--radius-full);
-          font-size: 0.8rem;
-          font-weight: 600;
-          letter-spacing: 0.05em;
-          margin-bottom: var(--space-4);
-          color: var(--accent-yellow);
-        }
-
-        .hero__title {
-          font-size: clamp(3rem, 7vw, 5.5rem);
-          line-height: 1.05;
-          margin-bottom: var(--space-3);
-          letter-spacing: 0.03em;
-        }
-
-        .hero__subtitle {
-          font-size: clamp(1rem, 2vw, 1.25rem);
-          color: var(--text-secondary);
-          max-width: 550px;
-          margin-bottom: var(--space-5);
-          line-height: 1.6;
-        }
-
-        .hero__actions {
-          display: flex;
-          gap: var(--space-2);
-          margin-bottom: var(--space-8);
-          flex-wrap: wrap;
-        }
-
-        .hero__btn {
-          padding: var(--space-2) var(--space-4);
-          font-size: 0.9rem;
-        }
-
-        .hero__stats {
-          display: flex;
-          align-items: center;
-          gap: var(--space-4);
-          padding: var(--space-3) var(--space-4);
-          background: rgba(255,255,255,0.03);
-          border: 1px solid rgba(255,255,255,0.06);
-          border-radius: var(--radius-lg);
-          backdrop-filter: blur(10px);
-          width: fit-content;
-        }
-
-        .hero__stat {
-          text-align: center;
-        }
-
-        .hero__stat-number {
-          display: block;
-          font-family: var(--font-heading);
-          font-size: 1.5rem;
-          color: var(--accent-red);
-          letter-spacing: 0.05em;
-        }
-
-        .hero__stat-label {
-          font-size: 0.75rem;
-          color: var(--text-muted);
-          text-transform: uppercase;
-          letter-spacing: 0.1em;
-        }
-
-        .hero__stat-divider {
-          width: 1px;
-          height: 30px;
-          background: rgba(255,255,255,0.1);
-        }
-
-        .hero__scroll {
-          position: absolute;
-          bottom: var(--space-5);
-          left: 50%;
-          transform: translateX(-50%);
-          z-index: 2;
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          gap: 8px;
-        }
-
-        .hero__scroll span {
-          font-size: 0.7rem;
-          text-transform: uppercase;
-          letter-spacing: 0.15em;
-          color: var(--text-muted);
-        }
-
-        .hero__scroll-line {
-          width: 1px;
-          height: 40px;
-          background: linear-gradient(180deg, var(--accent-red), transparent);
-          animation: bounceArrow 2s ease-in-out infinite;
-        }
-
-        @media (max-width: 768px) {
-          .hero__stats {
-            flex-wrap: wrap;
-            gap: var(--space-3);
-          }
-          .hero__stat-divider {
-            display: none;
-          }
-          .hero__actions {
-            flex-direction: column;
-          }
-          .hero__btn {
-            text-align: center;
-          }
-        }
-      `}</style>
     </section>
   );
 }

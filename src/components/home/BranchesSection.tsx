@@ -2,7 +2,7 @@
 
 import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
-import { MapPin, User, Clock } from 'lucide-react';
+import { MapPin, User, Clock, ArrowRight } from 'lucide-react';
 
 const branches = [
   {
@@ -25,21 +25,7 @@ const branches = [
     coach: 'Coach Amit Patel',
     timings: 'Mon-Sat: 6AM - 8PM',
     color: '#C0C0C0',
-  },
-  {
-    name: 'Bangalore',
-    location: 'Koramangala Skating Rink, Bangalore',
-    coach: 'Coach Sneha Reddy',
-    timings: 'Mon-Sat: 7AM - 9PM',
-    color: '#E10600',
-  },
-  {
-    name: 'Hyderabad',
-    location: 'Jubilee Hills Sports Academy, Hyderabad',
-    coach: 'Coach Vikram Singh',
-    timings: 'Mon-Sat: 6AM - 8PM',
-    color: '#FFD400',
-  },
+  }
 ];
 
 export default function BranchesSection() {
@@ -91,8 +77,8 @@ export default function BranchesSection() {
                   <Clock size={14} />
                   <span>{branch.timings}</span>
                 </div>
-                <a href="/branches" className="branches__card-link">
-                  View Details →
+                <a href="/branches" className="branches__card-link" style={{ display: 'inline-flex', alignItems: 'center', gap: '6px' }}>
+                  View Details <ArrowRight size={16} />
                 </a>
               </div>
             </motion.div>
@@ -100,98 +86,7 @@ export default function BranchesSection() {
         </div>
       </div>
 
-      <style jsx>{`
-        .branches-section {
-          background: var(--bg-primary);
-        }
 
-        .branches__grid {
-          display: grid;
-          grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-          gap: var(--space-4);
-        }
-
-        .branches__card {
-          background: var(--bg-card);
-          border: 1px solid rgba(255,255,255,0.06);
-          border-radius: var(--radius-lg);
-          overflow: hidden;
-          transition: all var(--transition-base);
-          cursor: pointer;
-        }
-
-        .branches__card:hover {
-          transform: translateY(-6px) scale(1.02);
-          border-color: var(--accent-yellow);
-          box-shadow: 0 0 30px rgba(255,212,0,0.15), var(--shadow-card-hover);
-        }
-
-        .branches__card-image {
-          position: relative;
-          height: 160px;
-          overflow: hidden;
-        }
-
-        .branches__card-image-placeholder {
-          width: 100%;
-          height: 100%;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-        }
-
-        .branches__card-overlay {
-          position: absolute;
-          bottom: 0;
-          left: 0;
-          right: 0;
-          height: 50%;
-          background: linear-gradient(transparent, var(--bg-card));
-        }
-
-        .branches__card-content {
-          padding: var(--space-3);
-        }
-
-        .branches__card-name {
-          font-family: var(--font-heading);
-          font-size: 1.25rem;
-          letter-spacing: 0.06em;
-          margin-bottom: var(--space-2);
-          color: var(--text-primary);
-        }
-
-        .branches__card-detail {
-          display: flex;
-          align-items: center;
-          gap: 8px;
-          font-size: 0.8rem;
-          color: var(--text-muted);
-          margin-bottom: 6px;
-        }
-
-        .branches__card-link {
-          display: inline-block;
-          margin-top: var(--space-2);
-          font-size: 0.8rem;
-          font-weight: 600;
-          text-transform: uppercase;
-          letter-spacing: 0.06em;
-          color: var(--accent-red);
-          transition: all var(--transition-fast);
-        }
-
-        .branches__card-link:hover {
-          color: var(--accent-yellow);
-          padding-left: 4px;
-        }
-
-        @media (max-width: 640px) {
-          .branches__grid {
-            grid-template-columns: 1fr;
-          }
-        }
-      `}</style>
     </section>
   );
 }

@@ -74,16 +74,7 @@ export default function LoadingScreen() {
             </motion.div>
           )}
 
-          <style jsx>{`
-            .loading-wheel-container {
-              position: relative;
-              width: 120px;
-              height: 120px;
-              display: flex;
-              align-items: center;
-              justify-content: center;
-            }
-          `}</style>
+          
         </motion.div>
       )}
     </AnimatePresence>

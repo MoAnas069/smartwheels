@@ -1,7 +1,7 @@
 'use client';
 import { motion, useInView, AnimatePresence } from 'framer-motion';
 import { useRef, useState } from 'react';
-import { ZoomIn, X, ChevronLeft, ChevronRight } from 'lucide-react';
+import { ZoomIn, X, ChevronLeft, ChevronRight, Camera } from 'lucide-react';
 
 const categories = ['All', 'Training', 'Competitions', 'Events', 'Awards'];
 const galleryItems = [
@@ -47,7 +47,7 @@ export default function GalleryPreview() {
               <motion.div key={item.id} layout initial={{ opacity: 0, scale: 0.8 }} animate={{ opacity: 1, scale: 1 }} exit={{ opacity: 0, scale: 0.8 }}
                 transition={{ duration: 0.4 }} onClick={() => setLightbox(item.id)}
                 style={{ position: 'relative', borderRadius: 'var(--radius-lg)', overflow: 'hidden', cursor: 'pointer', height: i % 3 === 0 ? 300 : 200, background: `linear-gradient(135deg, ${item.color}20, ${item.color}08)`, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                <span style={{ fontSize: '3rem', opacity: 0.3 }}>🛼</span>
+                <Camera size={48} color={item.color} style={{ opacity: 0.3 }} />
                 <div style={{ position: 'absolute', inset: 0, background: 'rgba(225,6,0,0.7)', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', opacity: 0, transition: 'opacity 0.3s' }}
                   onMouseEnter={e => (e.currentTarget.style.opacity = '1')} onMouseLeave={e => (e.currentTarget.style.opacity = '0')}>
                   <ZoomIn size={24} />
@@ -73,7 +73,7 @@ export default function GalleryPreview() {
               style={{ width: '80%', maxWidth: 800, aspectRatio: '16/10', borderRadius: 'var(--radius-lg)', overflow: 'hidden' }}>
               {(() => { const item = galleryItems.find(g => g.id === lightbox); return item ? (
                 <div style={{ width: '100%', height: '100%', background: `linear-gradient(135deg, ${item.color}30, ${item.color}10)`, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
-                  <div style={{ fontSize: '6rem' }}>🛼</div>
+                  <Camera size={96} color={item.color} style={{ opacity: 0.8 }} />
                   <h3 style={{ fontFamily: 'var(--font-heading)', fontSize: '2rem', letterSpacing: '0.05em', marginTop: 16, color: '#F5F5F5' }}>{item.title}</h3>
                   <p style={{ color: '#666', marginTop: 8 }}>{item.category}</p>
                 </div>) : null; })()}

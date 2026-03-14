@@ -1,7 +1,7 @@
 'use client';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useState } from 'react';
-import { ZoomIn, X, ChevronLeft, ChevronRight } from 'lucide-react';
+import { ZoomIn, X, ChevronLeft, ChevronRight, Camera } from 'lucide-react';
 
 const cats = ['All', 'Training', 'Competitions', 'Events', 'Awards'];
 const items = [
@@ -53,7 +53,7 @@ export default function GalleryPage() {
                 <motion.div key={item.id} layout initial={{ opacity: 0, scale: 0.8 }} animate={{ opacity: 1, scale: 1 }} exit={{ opacity: 0, scale: 0.8 }}
                   transition={{ duration: 0.35 }} onClick={() => setLb(item.id)}
                   style={{ position: 'relative', height: i % 3 === 0 ? 320 : 220, borderRadius: 'var(--radius-lg)', overflow: 'hidden', cursor: 'pointer', background: `linear-gradient(135deg, ${item.color}18, ${item.color}06)`, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                  <span style={{ fontSize: '3rem', opacity: 0.2 }}>🛼</span>
+                  <Camera size={48} color={item.color} style={{ opacity: 0.2 }} />
                   <div style={{ position: 'absolute', inset: 0, background: 'rgba(225,6,0,0.75)', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', opacity: 0, transition: 'opacity 0.3s' }}
                     onMouseEnter={e => (e.currentTarget.style.opacity = '1')} onMouseLeave={e => (e.currentTarget.style.opacity = '0')}>
                     <ZoomIn size={28} /><span style={{ fontFamily: 'var(--font-heading)', fontSize: '1.1rem', marginTop: 8 }}>{item.title}</span>
@@ -75,7 +75,7 @@ export default function GalleryPage() {
               <button onClick={e => { e.stopPropagation(); const idx = filtered.findIndex(f => f.id === lb); setLb(filtered[(idx - 1 + filtered.length) % filtered.length].id); }}
                 style={{ position: 'absolute', left: 24, top: '50%', transform: 'translateY(-50%)', background: 'rgba(255,255,255,0.1)', border: 'none', color: '#F5F5F5', cursor: 'pointer', padding: 14, borderRadius: '50%' }}><ChevronLeft size={28} /></button>
               <div onClick={e => e.stopPropagation()} style={{ width: '75%', maxWidth: 850, aspectRatio: '16/10', borderRadius: 'var(--radius-lg)', background: `linear-gradient(135deg, ${item?.color}25, ${item?.color}08)`, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
-                <div style={{ fontSize: '5rem' }}>🛼</div>
+                <Camera size={80} color={item?.color} style={{ opacity: 0.8 }} />
                 <h3 style={{ fontFamily: 'var(--font-heading)', fontSize: '2rem', marginTop: 16, color: '#F5F5F5' }}>{item?.title}</h3>
                 <p style={{ color: '#666', marginTop: 8 }}>{item?.cat}</p>
               </div>

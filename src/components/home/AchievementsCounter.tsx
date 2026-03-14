@@ -63,77 +63,7 @@ export default function AchievementsCounter() {
         </div>
       </div>
 
-      <style jsx>{`
-        .counters {
-          position: relative;
-          padding: var(--space-10) 0;
-          overflow: hidden;
-        }
-
-        .counters__bg {
-          position: absolute;
-          inset: 0;
-          background:
-            linear-gradient(135deg, rgba(225,6,0,0.08), transparent 50%),
-            linear-gradient(315deg, rgba(255,212,0,0.05), transparent 50%),
-            var(--bg-primary);
-        }
-
-        .counters__grid {
-          display: grid;
-          grid-template-columns: repeat(4, 1fr);
-          gap: var(--space-4);
-          position: relative;
-          z-index: 1;
-        }
-
-        .counters__item {
-          text-align: center;
-          padding: var(--space-5) var(--space-3);
-          background: rgba(255,255,255,0.02);
-          border: 1px solid rgba(255,255,255,0.06);
-          border-radius: var(--radius-lg);
-          transition: all var(--transition-base);
-        }
-
-        .counters__item:hover {
-          background: rgba(255,255,255,0.04);
-          border-color: rgba(225,6,0,0.3);
-          box-shadow: 0 0 40px rgba(225,6,0,0.1);
-          transform: translateY(-4px);
-        }
-
-        .counters__icon {
-          margin-bottom: var(--space-2);
-        }
-
-        .counters__number {
-          font-family: var(--font-heading);
-          font-size: clamp(2.5rem, 5vw, 3.5rem);
-          line-height: 1;
-          margin-bottom: var(--space-1);
-        }
-
-        .counters__label {
-          font-size: 0.85rem;
-          color: var(--text-muted);
-          text-transform: uppercase;
-          letter-spacing: 0.08em;
-        }
-
-        @media (max-width: 768px) {
-          .counters__grid {
-            grid-template-columns: repeat(2, 1fr);
-          }
-        }
-
-        @media (max-width: 480px) {
-          .counters__grid {
-            grid-template-columns: 1fr 1fr;
-            gap: var(--space-2);
-          }
-        }
-      `}</style>
+      
     </section>
   );
 }

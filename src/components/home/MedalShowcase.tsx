@@ -2,6 +2,7 @@
 
 import { motion, useInView } from 'framer-motion';
 import { useRef, useState } from 'react';
+import { Trophy } from 'lucide-react';
 
 const medals = [
   {
@@ -11,7 +12,6 @@ const medals = [
     count: 12,
     competition: 'State Championship 2024',
     event: 'Speed Skating',
-    icon: '🥇',
   },
   {
     type: 'Silver',
@@ -20,7 +20,6 @@ const medals = [
     count: 18,
     competition: 'District Championship 2024',
     event: 'Freestyle Skating',
-    icon: '🥈',
   },
   {
     type: 'Bronze',
@@ -29,7 +28,6 @@ const medals = [
     count: 25,
     competition: 'National Championship 2023',
     event: 'Artistic Skating',
-    icon: '🥉',
   },
 ];
 
@@ -74,7 +72,9 @@ export default function MedalShowcase() {
                   borderColor: hoveredIndex === i ? medal.color : 'rgba(255,255,255,0.06)',
                 }}
               >
-                <span className="medals__emoji">{medal.icon}</span>
+                <span className="medals__emoji">
+                  <Trophy size={64} color={medal.color} strokeWidth={1.5} />
+                </span>
               </motion.div>
 
               <h3 className="medals__type" style={{ color: medal.color }}>{medal.type}</h3>
@@ -100,95 +100,7 @@ export default function MedalShowcase() {
         </div>
       </div>
 
-      <style jsx>{`
-        .medals {
-          background: var(--bg-secondary);
-        }
-
-        .medals__grid {
-          display: grid;
-          grid-template-columns: repeat(3, 1fr);
-          gap: var(--space-4);
-          max-width: 900px;
-          margin: 0 auto;
-        }
-
-        .medals__card {
-          text-align: center;
-          padding: var(--space-6) var(--space-4);
-          background: var(--bg-card);
-          border: 1px solid rgba(255,255,255,0.06);
-          border-radius: var(--radius-lg);
-          cursor: pointer;
-          transition: all var(--transition-base);
-        }
-
-        .medals__card:hover {
-          transform: translateY(-8px);
-          background: var(--bg-card-hover);
-        }
-
-        .medals__icon {
-          width: 100px;
-          height: 100px;
-          border-radius: 50%;
-          background: rgba(255,255,255,0.03);
-          border: 2px solid rgba(255,255,255,0.06);
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          margin: 0 auto var(--space-3);
-          transition: all var(--transition-base);
-        }
-
-        .medals__emoji {
-          font-size: 3rem;
-        }
-
-        .medals__type {
-          font-family: var(--font-heading);
-          font-size: 1.5rem;
-          letter-spacing: 0.1em;
-          margin-bottom: 4px;
-        }
-
-        .medals__count {
-          font-size: 0.9rem;
-          color: var(--text-muted);
-          margin-bottom: var(--space-2);
-        }
-
-        .medals__details {
-          overflow: hidden;
-          margin-top: var(--space-2);
-        }
-
-        .medals__detail-item {
-          display: flex;
-          justify-content: space-between;
-          padding: 6px 0;
-          border-top: 1px solid rgba(255,255,255,0.05);
-        }
-
-        .medals__detail-label {
-          font-size: 0.75rem;
-          color: var(--text-muted);
-          text-transform: uppercase;
-          letter-spacing: 0.05em;
-        }
-
-        .medals__detail-value {
-          font-size: 0.8rem;
-          color: var(--text-secondary);
-        }
-
-        @media (max-width: 768px) {
-          .medals__grid {
-            grid-template-columns: 1fr;
-            max-width: 400px;
-          }
-        }
-      `}</style>
+      
     </section>
   );
 }
