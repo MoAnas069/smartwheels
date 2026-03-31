@@ -39,16 +39,16 @@ export default function Navbar() {
         <Link href="/" className="navbar__logo">
           <div className="navbar__logo-icon">
             <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <circle cx="20" cy="20" r="18" stroke="url(#logoGrad)" strokeWidth="3"/>
-              <circle cx="20" cy="20" r="7" stroke="url(#logoGrad)" strokeWidth="2"/>
-              <line x1="20" y1="2" x2="20" y2="13" stroke="#E10600" strokeWidth="2"/>
-              <line x1="20" y1="27" x2="20" y2="38" stroke="#FFD400" strokeWidth="2"/>
-              <line x1="2" y1="20" x2="13" y2="20" stroke="#E10600" strokeWidth="2"/>
-              <line x1="27" y1="20" x2="38" y2="20" stroke="#FFD400" strokeWidth="2"/>
+              <circle cx="20" cy="20" r="18" stroke="url(#logoGrad)" strokeWidth="3" />
+              <circle cx="20" cy="20" r="7" stroke="url(#logoGrad)" strokeWidth="2" />
+              <line x1="20" y1="2" x2="20" y2="13" stroke="#E10600" strokeWidth="2" />
+              <line x1="20" y1="27" x2="20" y2="38" stroke="#FFD400" strokeWidth="2" />
+              <line x1="2" y1="20" x2="13" y2="20" stroke="#E10600" strokeWidth="2" />
+              <line x1="27" y1="20" x2="38" y2="20" stroke="#FFD400" strokeWidth="2" />
               <defs>
                 <linearGradient id="logoGrad" x1="0" y1="0" x2="40" y2="40">
-                  <stop stopColor="#E10600"/>
-                  <stop offset="1" stopColor="#FFD400"/>
+                  <stop stopColor="#E10600" />
+                  <stop offset="1" stopColor="#FFD400" />
                 </linearGradient>
               </defs>
             </svg>
@@ -75,7 +75,7 @@ export default function Navbar() {
             Student Portal
           </Link>
           <Link href="/admin/login" className="btn btn-primary navbar__cta">
-            Join Academy
+            Admin Login
           </Link>
         </div>
 
@@ -120,14 +120,14 @@ export default function Navbar() {
                 Student Portal
               </Link>
               <Link href="/admin/login" className="btn btn-primary" style={{ width: '100%' }}>
-                Join Academy
+                Admin Login
               </Link>
             </div>
           </motion.div>
         )}
       </AnimatePresence>
 
-      
+
     </motion.header>
   );
 }
