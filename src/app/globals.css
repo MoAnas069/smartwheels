@@ -286,6 +286,8 @@ a {
   mask-composite: exclude;
   opacity: 0;
   transition: opacity var(--transition-base);
+  pointer-events: none;
+  z-index: 0;
 }
 
 .card:hover {
@@ -296,6 +298,19 @@ a {
 
 .card:hover::before {
   opacity: 1;
+}
+
+/* Used in dashboard/panel cards that should NOT lift on hover */
+.no-hover-card,
+.no-hover-card:hover {
+  transform: none !important;
+  box-shadow: var(--shadow-card) !important;
+  overflow: visible !important;
+}
+
+.no-hover-card::before,
+.no-hover-card:hover::before {
+  display: none !important;
 }
 
 /* --- Form Inputs --- */
@@ -339,6 +354,35 @@ textarea.form-input {
   resize: vertical;
   min-height: 120px;
 }
+
+/* --- Modal Card Override --- */
+/* Prevents .card hover effects (transform, glow, pseudo-element) when used as a modal */
+.modal-card,
+.modal-card:hover {
+  transform: none !important;
+  box-shadow: var(--shadow-card) !important;
+  background: var(--bg-secondary) !important;
+  overflow: visible !important;
+}
+
+.modal-card::before,
+.modal-card:hover::before {
+  display: none !important;
+}
+
+/* Ensure form inputs have proper focus indicators */
+.modal-card .form-input:focus {
+  outline: none;
+  border-color: var(--accent-red);
+  box-shadow: 0 0 0 3px rgba(225, 6, 0, 0.2);
+}
+
+/* Dropdown select styling inside modals */
+.modal-card select.form-input {
+  appearance: auto;
+  cursor: pointer;
+}
+
 
 /* --- Animations --- */
 @keyframes fadeInUp {
@@ -957,7 +1001,8 @@ textarea.form-input {
 .hero__content {
   position: relative;
   z-index: 2;
-  padding-top: var(--space-12);
+  padding-top: var(--space-16);
+  margin-top: 8vh;
   width: 100%;
 }
 

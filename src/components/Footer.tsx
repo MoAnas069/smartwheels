@@ -2,9 +2,13 @@
 
 import Link from 'next/link';
 import { Phone, Mail, MapPin, Instagram, Facebook, Youtube } from 'lucide-react';
+import { usePathname } from 'next/navigation';
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
+  const pathname = usePathname();
+
+  if (pathname?.startsWith('/admin') || pathname?.startsWith('/instructor')) return null;
 
   return (
     <footer className="footer">

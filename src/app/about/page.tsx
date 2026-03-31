@@ -73,7 +73,7 @@ export default function AboutPage() {
       </section>
 
       {/* Vision Section */}
-      <section ref={ref2} style={{ background: 'var(--bg-primary)', padding: 'var(--space-12) var(--space-4)', position: 'relative', overflow: 'hidden' }}>
+      <section ref={ref2} style={{ background: 'var(--bg-primary)', padding: 'var(--space-16) var(--space-4)', position: 'relative', overflow: 'hidden' }}>
         <div style={{ position: 'absolute', inset: 0, background: 'radial-gradient(ellipse at center, rgba(255,212,0,0.05) 0%, transparent 65%)', pointerEvents: 'none' }} />
         <div className="container">
           <motion.div className="section-title" initial={{ opacity: 0, y: 40 }} animate={inView2 ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.6 }}>
@@ -86,18 +86,18 @@ export default function AboutPage() {
             animate={inView2 ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.7, delay: 0.2 }}
             style={{
-              maxWidth: '860px',
+              maxWidth: '1060px',
               margin: '0 auto',
-              padding: 'var(--space-6) var(--space-8)',
-              background: 'linear-gradient(135deg, rgba(255,212,0,0.05), rgba(225,6,0,0.04))',
-              border: '1px solid rgba(255,212,0,0.15)',
+              padding: 'var(--space-10) var(--space-12)',
+              background: 'linear-gradient(135deg, rgba(255,212,0,0.07), rgba(225,6,0,0.05))',
+              border: '1px solid rgba(255,212,0,0.2)',
               borderRadius: 'var(--radius-xl)',
               position: 'relative',
               overflow: 'hidden',
             }}
           >
-            <div style={{ position: 'absolute', top: '-12px', left: '32px', fontFamily: 'Georgia, serif', fontSize: '8rem', color: 'rgba(255,212,0,0.08)', lineHeight: 1, userSelect: 'none', pointerEvents: 'none' }}>&ldquo;</div>
-            <p style={{ fontSize: 'clamp(1rem, 2vw, 1.2rem)', color: 'var(--text-secondary)', lineHeight: 2, textAlign: 'center', position: 'relative', zIndex: 1, fontStyle: 'italic' }}>
+            <div style={{ position: 'absolute', top: '-20px', left: '40px', fontFamily: 'Georgia, serif', fontSize: '14rem', color: 'rgba(255,212,0,0.07)', lineHeight: 1, userSelect: 'none', pointerEvents: 'none' }}>&ldquo;</div>
+            <p style={{ fontSize: 'clamp(1.15rem, 2.5vw, 1.55rem)', color: 'var(--text-secondary)', lineHeight: 2.1, textAlign: 'center', position: 'relative', zIndex: 1, fontStyle: 'italic', letterSpacing: '0.01em' }}>
               To emerge as a beacon of excellence in skating that shapes{' '}
               <span style={{ color: '#FFD400', fontWeight: 700, fontStyle: 'normal' }}>confident champions</span> and{' '}
               <span style={{ color: '#FFD400', fontWeight: 700, fontStyle: 'normal' }}>responsible individuals</span> — nurturing excellence, resilience, and sportsmanship through world-class training, innovation, and unwavering commitment to holistic development.
